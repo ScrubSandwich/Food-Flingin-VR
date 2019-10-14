@@ -11,7 +11,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{DFB11D94-BEB3-505C-D49D-9F052CC27E2D}</ProjectGuid>
+    <ProjectGuid>{780F136A-D83F-6325-96D9-2AB507E28714}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -55,29 +55,31 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\testscript.cs" />
+     <Compile Include="Assets\ControllerGrabObject.cs" />
+     <Compile Include="Assets\old.cs" />
+     <Compile Include="Assets\PickUp.cs" />
      <None Include="Assets\BJ OldPot\README.txt" />
      <None Include="Assets\BarProps\Credits.txt" />
      <None Include="Assets\Kitchen Asset\README.txt" />
      <None Include="Assets\Clipboard\ReadMe\ReadMe.txt" />
      <None Include="Assets\FoodAndGrocery\Info.txt" />
  <Reference Include="Unity.Timeline.Editor">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
+ <HintPath>C:/VR/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro.Editor">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
+ <HintPath>C:/VR/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Timeline">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
+ <HintPath>C:/VR/Library/ScriptAssemblies/Unity.Timeline.dll</HintPath>
  </Reference>
  <Reference Include="Unity.CollabProxy.Editor">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
+ <HintPath>C:/VR/Library/ScriptAssemblies/Unity.CollabProxy.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.TextMeshPro">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
+ <HintPath>C:/VR/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.DataPrivacy">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
+ <HintPath>C:/VR/Library/ScriptAssemblies/Unity.Analytics.DataPrivacy.dll</HintPath>
  </Reference>
  <Reference Include="UnityEngine.AIModule">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.11f1/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -262,17 +264,17 @@
  <Reference Include="nunit.framework">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.11f1/Editor/Data/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
  </Reference>
+ <Reference Include="Valve.Newtonsoft.Json">
+ <HintPath>C:/VR/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+ </Reference>
  <Reference Include="Unity.Analytics.Editor">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
+ <HintPath>C:/VR/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Editor.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.StandardEvents">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
+ <HintPath>C:/VR/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.StandardEvents.dll</HintPath>
  </Reference>
  <Reference Include="Unity.Analytics.Tracker">
- <HintPath>C:/Users/jmieczni/Cooking2/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
- </Reference>
- <Reference Include="Valve.Newtonsoft.Json">
- <HintPath>C:/Users/jmieczni/Cooking2/Assets/SteamVR/Input/Plugins/JSON.NET/Valve.Newtonsoft.Json.dll</HintPath>
+ <HintPath>C:/VR/Library/PackageCache/com.unity.analytics@3.3.2/Unity.Analytics.Tracker.dll</HintPath>
  </Reference>
  <Reference Include="netstandard">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2019.1.11f1/Editor/Data/NetStandard/ref/2.0.0/netstandard.dll</HintPath>
@@ -622,23 +624,23 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="SteamVR_Actions.csproj">
-      <Project>{7278BFF6-0049-5F90-3523-9F053EE30BB5}</Project>
+      <Project>{8E2DF2CE-36B5-996D-7046-DA3E9E04ADB7}</Project>
       <Name>SteamVR_Actions</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Input_Editor.csproj">
-      <Project>{FF11BD57-C1AE-3B3A-2C44-AEDAA07F5E18}</Project>
+      <Project>{1F9852F3-1769-CF80-6E5A-D60979F43D4B}</Project>
       <Name>SteamVR_Input_Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Editor.csproj">
-      <Project>{42EF7AA6-0EA2-57B7-B725-D5440095E6A9}</Project>
+      <Project>{CD68D90E-2AD9-25EF-5193-F71346679278}</Project>
       <Name>SteamVR_Editor</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR.csproj">
-      <Project>{A38EC20D-A2E9-7274-87C8-FCBB4BED4CC2}</Project>
+      <Project>{728783C8-1D37-2BD7-FB10-3BD4F75D9268}</Project>
       <Name>SteamVR</Name>
     </ProjectReference>
     <ProjectReference Include="SteamVR_Windows_EditorHelper.csproj">
-      <Project>{D7E97D48-C2CB-9F25-BF1B-9F6026EFF1BE}</Project>
+      <Project>{6E46B84B-7256-99E7-C229-889BFFCF5345}</Project>
       <Name>SteamVR_Windows_EditorHelper</Name>
     </ProjectReference>
   </ItemGroup>
