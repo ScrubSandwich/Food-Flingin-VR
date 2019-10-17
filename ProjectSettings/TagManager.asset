@@ -3,7 +3,30 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Ingredient
+  - Cheese
+  - Cucumber
+  - Joghurt
+  - Leek
+  - Meat
+  - Mushroom
+  - Onion
+  - Tomato
+  - Watermelon
+  - Milk
+  - Broccoli
+  - Bread
+  - Sauce
+  - Avocado
+  - Basil
+  - Carrot
+  - Lemon
+  - Apple
+  - Pepper
+  - Blue Pot
+  - Green Pot
+  - Yellow Pot
   layers:
   - Default
   - TransparentFX

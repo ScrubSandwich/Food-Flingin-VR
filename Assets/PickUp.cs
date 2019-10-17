@@ -27,32 +27,32 @@ public class PickUp : MonoBehaviour
 
         //Debug.Log(GetGrab());
 
-        //distanceBetweenPlayerAndObject = Vector3.Distance(item.transform.position, tempParent.transform.position);
+        distanceBetweenPlayerAndObject = Vector3.Distance(item.transform.position, tempParent.transform.position);
 
-        //if (distanceBetweenPlayerAndObject > 1f)
-        //{
-        //    isHolding = false;
+        if (distanceBetweenPlayerAndObject > 1f)
+        {
+            isHolding = false;
 
-        //}
-        //if (isHolding == true)
-        //{
-        //    item.GetComponent<Rigidbody>().velocity = Vector3.zero;
-        //    item.GetComponent<Rigidbody>().angularVelocity= Vector3.zero;
-        //    item.transform.SetParent(tempParent.transform);
+        }
+        if (isHolding == true)
+        {
+            item.GetComponent<Rigidbody>().velocity = Vector3.zero;
+            item.GetComponent<Rigidbody>().angularVelocity= Vector3.zero;
+            item.transform.SetParent(tempParent.transform);
 
-        //    if (false) // TODO
-        //    {
-        //        item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
-        //        isHolding = false;
-        //    }
-        //}
-        //else
-        //{
-        //    objectPosition = item.transform.position;
-        //    item.transform.SetParent(null);
-        //    item.GetComponent<Rigidbody>().useGravity = true;
-        //    item.transform.position = objectPosition;
-        //}
+            if (false) // TODO
+            {
+                item.GetComponent<Rigidbody>().AddForce(tempParent.transform.forward * throwForce);
+                isHolding = false;
+            }
+        }
+        else
+        {
+            objectPosition = item.transform.position;
+            item.transform.SetParent(null);
+            item.GetComponent<Rigidbody>().useGravity = true;
+            item.transform.position = objectPosition;
+        }
     }
 
     public bool GetGrab() // 2
@@ -60,19 +60,19 @@ public class PickUp : MonoBehaviour
         return GrabGrip.GetState(handType);
     }
 
-    //private void onTriggerDown()
-    //{
-    //    if (distanceBetweenPlayerAndObject <= 1f)
-    //    {
-    //        isHolding = true;
-    //        item.GetComponent<Rigidbody>().useGravity = false;
-    //        item.GetComponent<Rigidbody>().detectCollisions = true;
-    //    }
+    private void onTriggerDown()
+    {
+        if (distanceBetweenPlayerAndObject <= 1f)
+        {
+            isHolding = true;
+            item.GetComponent<Rigidbody>().useGravity = false;
+            item.GetComponent<Rigidbody>().detectCollisions = true;
+        }
 
-    //}
+    }
 
-    //private void onTriggerUp()
-    //{
+    private void onTriggerUp()
+    {
 
-    //}
+    }
 }
