@@ -17,6 +17,16 @@ public class PickUp : MonoBehaviour
     public GameObject tempParent;
     public bool isHolding = false;
 
+    private Vector3 _currentGrabbedLocation;
+
+    void Start()
+    {
+        GrabGrip.onStateUp += onTriggerUp;
+        item = null;
+        _currentGrabbedLocation = new Vector3();
+
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -25,7 +35,10 @@ public class PickUp : MonoBehaviour
             print("grab " + handType);
         }
 
-        //Debug.Log(GetGrab());
+        if (item != null)
+        {
+            _currentGrabbedLocation = item.transform.position;
+        }
 
         distanceBetweenPlayerAndObject = Vector3.Distance(item.transform.position, tempParent.transform.position);
 
@@ -71,7 +84,7 @@ public class PickUp : MonoBehaviour
 
     }
 
-    private void onTriggerUp()
+    private void onTriggerUp(SteamVR_Action_Boolean fromAction, SteamVR_Input_Sources fromSource)
     {
 
     }

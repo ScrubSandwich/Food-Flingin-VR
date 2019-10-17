@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
@@ -87,9 +88,16 @@ public class ControllerGrabObject : MonoBehaviour
             GetComponent<FixedJoint>().connectedBody = null;
             Destroy(GetComponent<FixedJoint>());
 
-            objectInHand.GetComponent<Rigidbody>().velocity = controllerPose.GetVelocity();
-            objectInHand.GetComponent<Rigidbody>().angularVelocity = controllerPose.GetAngularVelocity();
+            Rigidbody rigidbody = objectInHand.GetComponent<Rigidbody>();
 
+            Vector3 oldVec = controllerPose.GetVelocity();
+
+            oldVec = Quaternion.Euler(0, 90, 0) * oldVec;
+
+            Vector3 n = new Vector3(2, 1, 2);
+            oldVec = Vector3.Scale(oldVec, n);
+
+            rigidbody.velocity = oldVec;
         }
 
         objectInHand = null;
