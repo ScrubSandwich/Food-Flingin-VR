@@ -8,7 +8,8 @@ public class ParentFood : MonoBehaviour
     public CreateFood[] pots;
 
     public Text stopwatch;
-    private float minutes, seconds;
+    private float minutes, seconds, totalTime;
+    bool hasStarted;
 
     public int total
     {
@@ -26,16 +27,40 @@ public class ParentFood : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        stopwatch = GetComponent<Text>() as Text;
+        stopwatch = GetComponent<Text>();
+        hasStarted = false;
     }
 
     // Update is called once per frame
     void Update()
     {
+        Raycast hit;
+
+        if (Physics.Raycast(transform.position, transform.TransformDirection(Vector3.forward), out hit, Mathf.Infinity))
+        {
+            Vector3 fwd = transform.TransformDirection(Vector3.forward);
+
+            Debug.DrawRay(transform.position, fwd * 100, Color.blue);
+
+            if (hit.collider.gameObject.tag == "Begin")
+            {
+
+            }
+        }
+
+
         Debug.Log("TOTAL SCORE: " + total);
 
-        minutes = (int)(Time.deltaTime / 60f);
-        seconds = (int)(Time.deltaTime % 60);
-        stopwatch.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        while (total < 3)
+        {
+            totalTime += Time.deltaTime;
+
+            minutes = (int)((totalTime % 3600) / 60);
+            seconds = (int)(totalTime % 60);
+            stopwatch.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+        }
+        
     }
+
+
 }
