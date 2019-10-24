@@ -38,9 +38,9 @@ public class PickUp : MonoBehaviour
         if (item != null)
         {
             _currentGrabbedLocation = item.transform.position;
+            distanceBetweenPlayerAndObject = Vector3.Distance(item.transform.position, tempParent.transform.position);
         }
-
-        distanceBetweenPlayerAndObject = Vector3.Distance(item.transform.position, tempParent.transform.position);
+        
 
         if (distanceBetweenPlayerAndObject > 1f)
         {
@@ -61,10 +61,14 @@ public class PickUp : MonoBehaviour
         }
         else
         {
-            objectPosition = item.transform.position;
-            item.transform.SetParent(null);
-            item.GetComponent<Rigidbody>().useGravity = true;
-            item.transform.position = objectPosition;
+            if (item != null)
+            {
+                objectPosition = item.transform.position;
+                item.transform.SetParent(null);
+                item.GetComponent<Rigidbody>().useGravity = true;
+                item.transform.position = objectPosition;
+            }
+            
         }
     }
 

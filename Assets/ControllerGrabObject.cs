@@ -13,6 +13,11 @@ public class ControllerGrabObject : MonoBehaviour
 
     private GameObject collidingObject;
     private GameObject objectInHand;
+    private GameObject lastObject;
+
+    Vector3 originalPos;
+    int timeObjectIsOutOfHand = 0;
+    int TIME_UNTIL_OBJECT_RESPAWNS = 200;
 
     private void SetCollidingObject(Collider col)
     {
@@ -42,6 +47,23 @@ public class ControllerGrabObject : MonoBehaviour
                 ReleaseObject();
             }
         }
+
+        Debug.Log(timeObjectIsOutOfHand);
+
+        // This is for resetting the object back to its starting position
+        if (lastObject != null)
+        {
+            timeObjectIsOutOfHand++;
+
+            if (timeObjectIsOutOfHand > TIME_UNTIL_OBJECT_RESPAWNS)
+            {
+                lastObject.transform.position = originalPos;
+                Rigidbody rigidbody = lastObject.GetComponent<Rigidbody>();
+                rigidbody.velocity = new Vector3(0, 0, 0);
+                timeObjectIsOutOfHand = 0;
+                lastObject = null;
+            }
+        }
     }
 
     public void OnTriggerEnter(Collider other)
@@ -67,6 +89,7 @@ public class ControllerGrabObject : MonoBehaviour
     private void GrabObject()
     {
         objectInHand = collidingObject;
+        originalPos = gameObject.transform.position;
         collidingObject = null;
 
         var joint = AddFixedJoint();
@@ -83,12 +106,13 @@ public class ControllerGrabObject : MonoBehaviour
 
     private void ReleaseObject()
     {
+        Rigidbody rigidbody;
         if (GetComponent<FixedJoint>())
         {
             GetComponent<FixedJoint>().connectedBody = null;
             Destroy(GetComponent<FixedJoint>());
 
-            Rigidbody rigidbody = objectInHand.GetComponent<Rigidbody>();
+            rigidbody = objectInHand.GetComponent<Rigidbody>();
 
             Vector3 oldVec = controllerPose.GetVelocity();
 
@@ -99,6 +123,8 @@ public class ControllerGrabObject : MonoBehaviour
 
             rigidbody.velocity = oldVec;
         }
+
+        lastObject = objectInHand;
 
         objectInHand = null;
     }
