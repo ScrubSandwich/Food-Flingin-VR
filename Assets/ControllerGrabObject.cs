@@ -39,7 +39,7 @@ public class ControllerGrabObject : MonoBehaviour
         {
             if (collidingObject)
             {
-                started = true;
+                //started = true;
                 GrabObject();
             }
         }
@@ -92,6 +92,7 @@ public class ControllerGrabObject : MonoBehaviour
 
     private void GrabObject()
     {
+        started = true;
         objectInHand = collidingObject;
         originalPos = gameObject.transform.position;
         collidingObject = null;

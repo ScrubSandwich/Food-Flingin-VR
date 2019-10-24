@@ -30,7 +30,7 @@ public class ParentFood : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (total >= 3)
+        if (total >= 3 && ended == false)
         {
             ended = true;
         }
