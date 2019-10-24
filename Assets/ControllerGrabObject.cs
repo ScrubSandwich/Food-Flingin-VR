@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Valve.VR;
+using UnityEngine.UI;
 
 
 public class ControllerGrabObject : MonoBehaviour
@@ -18,6 +19,8 @@ public class ControllerGrabObject : MonoBehaviour
     Vector3 originalPos;
     int timeObjectIsOutOfHand = 0;
     int TIME_UNTIL_OBJECT_RESPAWNS = 200;
+
+    public static bool started = false;
 
     private void SetCollidingObject(Collider col)
     {
@@ -36,6 +39,7 @@ public class ControllerGrabObject : MonoBehaviour
         {
             if (collidingObject)
             {
+                started = true;
                 GrabObject();
             }
         }
@@ -128,4 +132,5 @@ public class ControllerGrabObject : MonoBehaviour
 
         objectInHand = null;
     }
+
 }
