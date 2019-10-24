@@ -16,9 +16,6 @@ public class CreateFood : MonoBehaviour
         //counter for number of ingredients on list
         count = 0;
 
-        //counter for total overall score
-        totalScore = 0;
-
         //display images for 1st round
         food1.enabled = true;
         food2.enabled = true;
@@ -56,14 +53,11 @@ public class CreateFood : MonoBehaviour
         //"destroy" gameobject
         other.gameObject.SetActive(false);
 
-        // TODO: reinstantiate object back at table for extra use
-
-
-        //if all ingredients thrown into pot correctly then update totalScore
+        //end game once all pots filled
+        //designated by totalScore = 3
         if (count == ingredients.Length)
         {
             totalScore++;
-            count = 0;
 
             // OPTIONAL EXTRA FEATURE: show checkmark confirmation for 2 seconds
 

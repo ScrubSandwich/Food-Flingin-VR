@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class Timer : MonoBehaviour
 {
     private static bool hasStarted;
+    private static bool hasEnded;
 
     public Text stopwatch;
     private float minutes, seconds, totalTime;
@@ -20,9 +21,14 @@ public class Timer : MonoBehaviour
     void Update()
     {
         hasStarted = ControllerGrabObject.started;
+        hasEnded = ParentFood.ended;
 
-        Debug.Log("Start?: " + hasStarted);
-        if (hasStarted)
+        if (hasEnded)
+        {
+            hasStarted = false;
+            stopwatch.text = minutes.ToString("00") + ":" + seconds.ToString("00");
+
+        } else if (hasStarted)
         {
             totalTime += Time.deltaTime;
 
@@ -30,5 +36,6 @@ public class Timer : MonoBehaviour
             seconds = (int)(totalTime % 60);
             stopwatch.text = minutes.ToString("00") + ":" + seconds.ToString("00");
         }
+
     }
 }
