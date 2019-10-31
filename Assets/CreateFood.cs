@@ -51,7 +51,7 @@ public class CreateFood : MonoBehaviour
         }
 
         //"destroy" gameobject
-        other.gameObject.SetActive(false);
+        //other.gameObject.SetActive(false);
 
         //end game once all pots filled
         //designated by totalScore = 3
